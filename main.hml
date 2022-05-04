@@ -1,1 +1,80 @@
-oi
+<!doctype html>
+<html>
+  <head>
+  	<meta charset="utf-8">
+    <title> Cálculo Valor do Combustível </title>
+  <script language="javascript">
+/* Faça um programa em JavaScript que solicite a quantidade de litros de combustivel a 
+  ser abastecido por um 
+  carro(2 a 100 litros), solicite o tipo de combustivel
+  (G-gasolina, E-etanol  ou D-diesel)calcule o valor a ser pago.
+  Sendo que:
+  tipo de combustivel   R$/ litro
+  G                   6,98
+  E                   6,10
+  D                   7,30
+  
+  Exiba:
+  Tipo de combustivel por extenso:
+  Quantidade de litros:
+  Valor a ser pago:
+  
+  Obs: Fazer as validacoes das entradas. 
+  Desafio: Exibir uma imagem de vale presente quando o combustivel for G(gasolina)
+  e quantidade de litros for a partir de 50. 
+  */
+     
+    var TipoC, QtdL, Result, TipoCE;
+
+    do {
+      TipoC = window.prompt(" Digite o tipo de combustivel: \n G-gasolina.........6,98/litro"+ 
+                            "\n E-etanol.........6,10/litro \n D-diesel.........7,30/litro");
+    
+      if (TipoC=="" || TipoC==null || TipoC != "G" && TipoC != "g" && TipoC != "E" && TipoC != "e" && TipoC != "D" && TipoC != "d") {
+        alert("Valor inválido");
+      }
+
+    } while (TipoC=="" || TipoC==null || TipoC != "G" && TipoC != "g" && TipoC != "E" && TipoC != "e" && TipoC != "D" && TipoC != "d");
+
+    do {
+
+      QtdL =parseFloat(window.prompt("Digite a Quantidade de Litros desejados: "));
+
+      if (isNaN(QtdL) || QtdL<=0) {
+         alert("Valor inválido");
+      }
+
+      
+    } while (isNaN(QtdL) || QtdL<=0);
+
+    if (TipoC=="G" || TipoC=="g") {
+      TipoCE = "Gasolina";
+      Result = QtdL * 6.98;
+    }else if(TipoC=="E" || TipoC=="e"){
+      TipoCE = "Etanol";
+      Result = QtdL * 6.10;
+    }else{
+      TipoCE = "Diesel";
+      Result = QtdL * 7.30;
+    }
+    
+    document.write("  Tipo de combustivel: " + TipoCE + "<br>" +
+                   "  Quantidade de litros: " + QtdL + "<br>" +
+                   "  Valor a ser pago: " +  Result.toFixed(2));
+
+    if (TipoCE=="Gasolina" && QtdL>=50) {
+      document.write("<center>"+"<br>"+"<img src='imagens/ValePresenteG.png'>"+"</center>");
+    }
+  
+  
+  </script>
+
+
+
+</head>
+
+<body>
+
+
+</body>
+</html>
